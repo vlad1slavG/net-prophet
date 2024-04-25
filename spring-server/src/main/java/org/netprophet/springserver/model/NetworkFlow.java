@@ -8,7 +8,7 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -37,10 +37,10 @@ public class NetworkFlow implements Serializable {
     private Integer bytesOut;
     @Field(type = FieldType.Double)
     private Double duration;
-    @Field(type = FieldType.Date)
-    private Date collectedDateTime;
+    @Field(type = FieldType.Date_Nanos)
+    private Instant collectedDateTime;
 
     public NetworkFlow() {
-        collectedDateTime = new Date();
+        collectedDateTime = Instant.now();
     }
 }

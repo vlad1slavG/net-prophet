@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -22,5 +22,5 @@ public class NetworkFlowDto {
     private Integer packetsOut;
     private Integer bytesOut;
     private Double duration;
-    private Date collectedDateTime;
+    private Instant collectedDateTime;
 }
