@@ -1,1 +1,24 @@
-<p>hosts works!</p>
+<h1 class="text-2xl md:text-3xl pl-2 my-2 font-sans font-bold border-teal-400 text-gray-700">Hosts</h1>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 m-2 bg-clip-border rounded-xl text-gray-700 p-4 shadow-xl shadow-blue-gray-900/5">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Host Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+  <ng-container matColumnDef="hostName">
+    <th mat-header-cell *matHeaderCellDef>Host Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.hostName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="hostIp">
+    <th mat-header-cell *matHeaderCellDef>Host Ip</th>
+    <td mat-cell *matCellDef="let element">{{ element.hostIp }}</td>
+  </ng-container>
+  <ng-container matColumnDef="lastActiveDateTime">
+    <th mat-header-cell *matHeaderCellDef>Last Active DateTime</th>
+    <td mat-cell *matCellDef="let element">{{ element.lastActiveDateTime }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator class="shadow-xl rounded-xl m-2 " [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
